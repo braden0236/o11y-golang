@@ -1,0 +1,27 @@
+{
+    "breadcrumbs.enabled": false,
+    "explorer.compactFolders": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.formatOnSave": true,
+    "workbench.tips.enabled": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.tree.enableStickyScroll": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.indent": 8,
+    "material-icon-theme.hidesExplorerArrows": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "cSpell.words": [
+        "eamodio",
+        "gopath",
+        "goroot",
+        "healthz",
+        "humao",
+        "nolint",
+        "oderwat",
+        "promauto",
+        "promhttp",
+        "wireinject"
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "name": "o11y-golang",
+    "image": "docker.io/golang:1.24.4",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "go.toolsManagement.checkForUpdates": "local",
+                "go.useLanguageServer": true,
+                "go.gopath": "/go",
+                "go.goroot": "/usr/local/go"
+            },
+            "extensions": [
+                "golang.Go",
+                "mhutchie.git-graph",
+                "streetsidesoftware.code-spell-checker",
+                "oderwat.indent-rainbow",
+                "shd101wyy.markdown-preview-enhanced",
+                "humao.rest-client",
+                "eamodio.gitlens",
+                "PKief.material-icon-theme"
+            ]
+        }
+    }
+}
