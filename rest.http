@@ -1,0 +1,17 @@
+
+@hostname = 127.0.0.1
+@port = 8080
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+###
+
+# @name GetMetric
+GET http://{{host}}/metrics HTTP/1.1
+
+###
+
+# @name GetHealth
+GET http://{{host}}/healthz HTTP/1.1
+
+###

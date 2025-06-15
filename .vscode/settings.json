@@ -13,6 +13,7 @@
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "cSpell.words": [
+        "braden",
         "eamodio",
         "gopath",
         "goroot",
