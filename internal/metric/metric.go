@@ -42,7 +42,7 @@ func NewMetrics(opts ...Option) *Metrics {
 				Help:    "Duration of HTTP requests in seconds",
 				Buckets: prometheus.DefBuckets,
 			},
-			[]string{"path", "method"},
+			[]string{"path", "method", "status"},
 		),
 	}
 
@@ -66,7 +66,7 @@ func (m *Metrics) Middleware() gin.HandlerFunc {
 		}
 
 		m.requestsTotal.WithLabelValues(path, c.Request.Method, status).Inc()
-		m.requestDuration.WithLabelValues(path, c.Request.Method).Observe(duration.Seconds())
+		m.requestDuration.WithLabelValues(path, c.Request.Method, status).Observe(duration.Seconds())
 	}
 }
 
