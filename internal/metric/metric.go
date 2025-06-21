@@ -16,6 +16,7 @@ type Metrics struct {
 	requestDuration *prometheus.HistogramVec
 	username        string
 	password        string
+	ignoredMethods  map[string]struct{}
 }
 
 type Option func(*Metrics)
@@ -24,6 +25,15 @@ func WithBasicAuth(username, password string) Option {
 	return func(m *Metrics) {
 		m.username = username
 		m.password = password
+	}
+}
+
+func WithIgnoredMethods(methods ...string) Option {
+	return func(m *Metrics) {
+		m.ignoredMethods = make(map[string]struct{})
+		for _, method := range methods {
+			m.ignoredMethods[method] = struct{}{}
+		}
 	}
 }
 
@@ -58,6 +68,10 @@ func (m *Metrics) Middleware() gin.HandlerFunc {
 		start := time.Now()
 		c.Next()
 		duration := time.Since(start)
+
+		if _, ok := m.ignoredMethods[c.Request.Method]; ok {
+			return
+		}
 
 		status := strconv.Itoa(c.Writer.Status())
 		path := c.FullPath()

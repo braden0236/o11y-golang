@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/braden0236/o11y-golang/internal/config"
@@ -17,7 +18,9 @@ func main() {
 		os.Exit(100)
 	}
 
-	metrics := metric.NewMetrics(metric.WithBasicAuth(conf.Metrics.Username, conf.Metrics.Password))
+	metrics := metric.NewMetrics(
+		metric.WithIgnoredMethods(http.MethodOptions, http.MethodHead),
+	)
 
 	server := server.NewServer(metrics)
 
